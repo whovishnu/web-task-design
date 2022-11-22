@@ -258,3 +258,9 @@ font-weight: 700;
 .p-r{
   position: relative;
 }
+
+.h-100{
+  height: 75px;
+  overflow: hidden;
+  display: block;
+}

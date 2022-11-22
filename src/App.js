@@ -1,5 +1,5 @@
 import {
-  BrowserRouter as Router,Routes,Route
+  BrowserRouter as Router, Routes, Route
 } from "react-router-dom";
 
 import './App.css';
@@ -12,18 +12,26 @@ import { useState } from "react";
 
 
 function App() {
-  const [cuisineList,setCuisineList]= useState([]);
-  const [selectedCuisine,setSelectedCuisine]= useState("all");
+  const [cuisineList, setCuisineList] = useState([]);
+  const [selectedCuisine, setSelectedCuisine] = useState("all");
+  const [searchRestaurant, setSearchRestaurant] = useState("")
 
   return (
     <Router>
       <div className='grid-container'>
         <NavBar />
         <div>
-          <Header cuisineList={cuisineList} setSelectedCuisine={setSelectedCuisine} selectedCuisine={selectedCuisine}/>
+          <Header
+            cuisineList={cuisineList}
+            setSelectedCuisine={setSelectedCuisine}
+            selectedCuisine={selectedCuisine}
+            setSearchRestaurant={setSearchRestaurant} />
           <Routes>
-            <Route path='/restaurant/:id' element={<RestaurantDetails/>}/>
-            <Route path="/" element={<Restaurants setCuisineList={setCuisineList} selectedCuisine={selectedCuisine}/>} />
+            <Route path='/restaurant/:id' element={<RestaurantDetails />} />
+            <Route path="/" element={<Restaurants
+              searchRestaurant={searchRestaurant}
+              setCuisineList={setCuisineList}
+              selectedCuisine={selectedCuisine} />} />
           </Routes>
         </div>
       </div>

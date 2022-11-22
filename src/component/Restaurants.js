@@ -5,7 +5,7 @@ import {
 
 import { allRestaurantsAPI } from '../utils/api'
 
-function Restaurants({setCuisineList,selectedCuisine}) {
+function Restaurants({ setCuisineList, selectedCuisine, searchRestaurant }) {
     const [originalList, setOriginalList] = useState([]);
     const [list, setList] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -24,15 +24,21 @@ function Restaurants({setCuisineList,selectedCuisine}) {
             })
     }, [selectedCuisine])
 
-    useEffect(()=>{
-        if(originalList.length){
-            if(selectedCuisine == 'all'){
-                setList(originalList);
+    useEffect(() => {
+        if (originalList.length) {
+            let list=[];
+            if (searchRestaurant.length) {
+                list = originalList.filter(item => item.restaurantName.toLowerCase().startsWith(searchRestaurant.trim().toLowerCase()))
             }else{
-                setList(originalList.filter(item => JSON.parse(item.restaurantCuisine).includes(selectedCuisine)));
+                list = originalList
+            }
+            if (selectedCuisine == 'all') {
+                setList(list);
+            } else {
+                setList(list.filter(item => JSON.parse(item.restaurantCuisine).includes(selectedCuisine)));
             }
         }
-    },[selectedCuisine,originalList])
+    }, [selectedCuisine, originalList, searchRestaurant])
 
     return (
         <div className="container">
@@ -51,7 +57,7 @@ function Restaurants({setCuisineList,selectedCuisine}) {
                                         <div className="restaurant-title">{item.restaurantName} </div>
                                         <div className={item.isOpen ? "open" : "close"}>{item.isOpen ? "Open Now" : "Closed"}</div>
                                     </div>
-                                    <div className="restaurant-description">{item.restaurantDescription}
+                                    <div className="restaurant-description h-100">{item.restaurantDescription}
                                     </div>
                                 </div>
                             </Link>
