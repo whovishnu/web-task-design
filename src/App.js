@@ -1,24 +1,34 @@
-import logo from './logo.svg';
+import {
+  BrowserRouter as Router,Routes,Route
+} from "react-router-dom";
+
 import './App.css';
 
+import NavBar from './component/NavBar';
+import Header from './component/Header'
+import Restaurants from './component/Restaurants';
+import RestaurantDetails from './component/RestaurantDetails'
+import { useState } from "react";
+
+
 function App() {
+  const [cuisineList,setCuisineList]= useState([]);
+  const [selectedCuisine,setSelectedCuisine]= useState("all");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className='grid-container'>
+        <NavBar />
+        <div>
+          <Header cuisineList={cuisineList} setSelectedCuisine={setSelectedCuisine} selectedCuisine={selectedCuisine}/>
+          <Routes>
+            <Route path='/restaurant/:id' element={<RestaurantDetails/>}/>
+            <Route path="/" element={<Restaurants setCuisineList={setCuisineList} selectedCuisine={selectedCuisine}/>} />
+          </Routes>
+        </div>
+      </div>
+    </Router>
+
   );
 }
 

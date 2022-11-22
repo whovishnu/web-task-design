@@ -1,38 +1,260 @@
-.App {
+.grid-container {
+  display: grid;
+  grid-template-columns: 300px auto;
+  position: relative;
+}
+
+/* ----menu bar---- */
+
+.menu-bar {
+  background-color: #F7F7F7;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.menu-icon {
+  width: 20px;
+  height: 18px;
+}
+
+.menu-item {
+  display: flex;
+  padding: 15px 10px;
+  color: #626264;
+}
+
+.menu-item-name {
+  margin-left: 20px;
+}
+
+.item-selected {
+  color: white;
+  font-weight: bold;
+  background-color: #503E9D;
+  border-radius: 10px;
+}
+
+/* ----flex classes---- */
+
+.flex-row {
+  display: flex;
+}
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ----header classes---- */
+
+.header {
+  padding: 20px;
+  max-height: 50px;
+}
+
+.main-button {
+  color: white;
+  font-weight: bold;
+  background-color: #503E9D;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.button2 {
+  background-color: #FB6D3A;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.button3 {
+  background-color: #F7F7F7;
+  color: #626264;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.orange-btn {
+  background-color: rgba(251, 109, 58, 0.1);
+  color: #FB6D3A;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.search-bar {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: #F7F7F7;
+  border-radius: 10px;
+  margin: 5px;
 }
 
-.App-link {
-  color: #61dafb;
+.search-icon {
+  margin-left: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.search-box {
+  width: 338px;
+  height: 24px;
+  background-color: #F7F7F7;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.search-box:focus {
+  outline: none;
+}
+
+/* ----restaurant classes---- */
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  padding: 20px;
+}
+
+.restaurant-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+}
+
+.restaurant-title {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.restaurant-description {
+  color: #626264;
+  font-size: 16px;
+  line-height: 24px;
+  margin-top: 10px;
+  text-overflow: ellipsis;
+  max-lines: 3;
+  display: flex;
+  align-items: center;
+}
+
+.restaurant-heading {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.restaurant-image {
+  width: 336px;
+  height: 176px;
+  border-radius: 16px;
+  margin-bottom: 10px;
+}
+
+.restaurant-card {
+  width: 336px;
+  margin: 15px;
+}
+
+.open {
+  background-color: rgba(80, 62, 157, 0.1);
+  color: #503E9D;
+  padding: 4px 8px;
+  border-radius: 2px;
+  font-weight: 600;
+}
+
+.close {
+  background-color: rgba(251, 109, 58, 0.1);
+  color: #FB6D3A;
+  padding: 4px 8px;
+  border-radius: 2px;
+  font-weight: 600;
+}
+
+.br-10 {
+  border-radius: 10px;
+}
+
+.br-12 {
+  border-radius: 12px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+.mr-10{
+margin-right: 10px;
+}
+
+.min-h-176 {
+  min-height: 176;
+}
+
+.filter-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  /* filter: blur(8px); */
+  background-color: rgba(0, 0, 0, .55);
+
+}
+
+.filter-box {
+  box-sizing: border-box;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: 350px;
+  background-color: white;
+  z-index: 2;
+  padding: 20px;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+
+.itemName{
+font-weight: 700;
+}
+
+.itemCost{
+  color: #503E9D;
+}
+
+.text-orange{
+  color: #FB6D3A;
+}
+
+.label{
+  background-color: #FB6D3A;
+  border-radius: 16px;
+  padding: 4px 8px;
+  font-size: 12px;
+  position: absolute;
+  bottom: 0;
+  right: -2;
+}
+
+.p-r{
+  position: relative;
 }
