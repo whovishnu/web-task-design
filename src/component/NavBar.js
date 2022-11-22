@@ -12,7 +12,9 @@ const logo = require('../assets/image/logo.png')
 function Menubar() {
     return (
       <div className="menu-bar">
+        <Link to="/">
             <img src={logo} width={200} style={{margin:20}}/>
+        </Link>
   
         <div className='menu'>
   
