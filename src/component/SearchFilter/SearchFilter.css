@@ -1,0 +1,9 @@
+.font-w-400 {
+  font-weight: 400;
+}
+
+.apply-btn {
+  position: "absolute";
+  bottom: 20px;
+  width: 80%;
+}

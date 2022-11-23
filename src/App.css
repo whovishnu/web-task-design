@@ -55,13 +55,6 @@
   align-items: center;
 }
 
-/* ----header classes---- */
-
-.header {
-  padding: 20px;
-  max-height: 50px;
-}
-
 .main-button {
   color: white;
   font-weight: bold;
