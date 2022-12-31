@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: 300px auto;
   position: relative;
+  min-height: 100vh;
 }
 
 /* ----menu bar---- */
