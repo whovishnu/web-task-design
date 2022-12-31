@@ -10,6 +10,7 @@ function Cart() {
   const [list, setList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [total, setTotal] = useState(0);
+  const [orderList, setOrderLists] = useState([]);
 
   useEffect(() => {
     fetch(menuAPI)
@@ -19,11 +20,18 @@ function Cart() {
         let filterList = res.menu;
         setList(filterList);
         let temp = 0;
+        let tempOrderLists = [];
         res.menu.forEach((item) => {
           if (cart[item.id]) {
             temp += cart[item.id] * item.itemCost;
+            tempOrderLists.push({
+              ...item,
+              itemCost: cart[item.id] * item.itemCost,
+              itemCount: cart[item.id],
+            });
           }
         });
+        setOrderLists(tempOrderLists);
         setTotal(temp);
       });
   }, []);
@@ -130,6 +138,13 @@ function Cart() {
               dispatch(clearCart());
               setTotal(0);
               alert("Order Place Successfully!");
+              let orderLocal = localStorage.getItem("orderList");
+              localStorage.setItem(
+                "orderList",
+                orderLocal
+                  ? JSON.stringify([...JSON.parse(orderLocal), orderList])
+                  : JSON.stringify([orderList])
+              );
             }}
           >
             Place Order

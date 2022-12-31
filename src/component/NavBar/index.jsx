@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./NavBar.css";
 
 import homeIcon from "../../assets/image/home.png";
@@ -9,6 +9,8 @@ import settingIcon from "../../assets/image/setting.png";
 import logo from "../../assets/image/logo.png";
 
 function Menubar() {
+  let location = useLocation();
+
   return (
     <div className="menu-bar">
       <Link to="/">
@@ -17,16 +19,30 @@ function Menubar() {
 
       <div className="menu">
         <Link to="/">
-          <div className="menu-item item-selected">
+          <div
+            className={
+              location.pathname === "/"
+                ? "item-selected menu-item"
+                : "menu-item"
+            }
+          >
             <img src={homeIcon} className="menu-icon" alt="icon" />
             <div className="menu-item-name">Home</div>
           </div>
         </Link>
 
-        <div className="menu-item">
-          <img src={orderIcon} className="menu-icon" alt="icon" />
-          <div className="menu-item-name">Orders</div>
-        </div>
+        <Link to="/order">
+          <div
+            className={
+              location.pathname === "/order"
+                ? "item-selected menu-item"
+                : "menu-item"
+            }
+          >
+            <img src={orderIcon} className="menu-icon" alt="icon" />
+            <div className="menu-item-name">Orders</div>
+          </div>
+        </Link>
 
         <div className="menu-item">
           <img src={notificationIcon} className="menu-icon" alt="icon" />

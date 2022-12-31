@@ -14,7 +14,7 @@ import { setSearchRestaurant } from "../../redux/action";
 function Header() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const cart = useSelector((state) => state.cart);
+  // const cart = useSelector((state) => state.cart);
   const { selectedCuisine } = useSelector((state) => state.searchFilter);
   const [searchText, setSearchText] = useState("");
   const [showFilter, setShowFilter] = useState(false);

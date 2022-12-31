@@ -4,6 +4,7 @@ import "./App.css";
 
 import NavBar from "./component/NavBar";
 import Cart from "./component/Cart";
+import Order from "./component/Order";
 import Header from "./component/Header";
 import Restaurants from "./component/Restaurants";
 import RestaurantDetails from "./component/RestaurantDetails";
@@ -19,6 +20,7 @@ function App() {
             <Header />
             <Routes>
               <Route path="/cart" element={<Cart />} />
+              <Route path="/order" element={<Order />} />
               <Route path="/restaurant/:id" element={<RestaurantDetails />} />
               <Route path="/" element={<Restaurants />} />
             </Routes>
