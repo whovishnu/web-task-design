@@ -62,7 +62,12 @@ function Restaurants() {
         ) : (
           list.map((item) => {
             return (
-              <Link to={`/restaurant/${item.id}`}>
+              <Link
+                to={{
+                  pathname: `/restaurant/${item.id}`,
+                  // search: `${item.isOpen}`,
+                }}
+              >
                 <div className="restaurant-card">
                   <img
                     src={item.restaurantImage}

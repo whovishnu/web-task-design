@@ -9,6 +9,7 @@ import Header from "./component/Header";
 import Restaurants from "./component/Restaurants";
 import RestaurantDetails from "./component/RestaurantDetails";
 import ErrorBoundary from "./ErrorBoundary";
+import Login from "./component/Login";
 
 function App() {
   return (
@@ -19,10 +20,11 @@ function App() {
           <div>
             <Header />
             <Routes>
+              <Route path="/" element={<Login />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/order" element={<Order />} />
               <Route path="/restaurant/:id" element={<RestaurantDetails />} />
-              <Route path="/" element={<Restaurants />} />
+              <Route path="/home" element={<Restaurants />} />
             </Routes>
           </div>
         </div>

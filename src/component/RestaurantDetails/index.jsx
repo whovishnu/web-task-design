@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 
 import Menu from "../Menu";
 import { restaurantDetailsAPI } from "../../utils/api";
@@ -10,9 +10,11 @@ import phone from "../../assets/image/phone.png";
 
 function RestaurantDetails() {
   const { id } = useParams();
+  // const { search } = useLocation();
+
   const [restaurantDetails, setResaurantDetails] = useState({});
   const [loading, setLoading] = useState(true);
-
+  console.log(restaurantDetails);
   useEffect(() => {
     fetch(restaurantDetailsAPI)
       .then((res) => res.json())
@@ -60,6 +62,7 @@ function RestaurantDetails() {
         </div>
       </div>
       <Menu restaurantName={restaurantDetails?.restaurantName} />
+      {/* <div> Restaurant is temporial closed, you can't order right now!!</div> */}
     </div>
   );
 }

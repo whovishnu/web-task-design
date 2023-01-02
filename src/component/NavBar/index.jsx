@@ -11,17 +11,17 @@ import logo from "../../assets/image/logo.png";
 function Menubar() {
   let location = useLocation();
 
-  return (
+  return location.pathname != "/" ? (
     <div className="menu-bar">
-      <Link to="/">
+      <Link to="/home">
         <img src={logo} width={200} className="logo" alt="logo" />
       </Link>
 
       <div className="menu">
-        <Link to="/">
+        <Link to="/home">
           <div
             className={
-              location.pathname === "/"
+              location.pathname === "/home"
                 ? "item-selected menu-item"
                 : "menu-item"
             }
@@ -60,6 +60,8 @@ function Menubar() {
         </div>
       </div>
     </div>
+  ) : (
+    <div className=""></div>
   );
 }
 

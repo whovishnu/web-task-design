@@ -19,7 +19,7 @@ function Header() {
   const [searchText, setSearchText] = useState("");
   const [showFilter, setShowFilter] = useState(false);
 
-  return (
+  return location.pathname != "/" ? (
     <div className="header flex-between">
       <div className="main-button" onClick={() => navigate(-1)}>
         <img src={backIcon} className="menu-icon" />
@@ -58,6 +58,8 @@ function Header() {
       </div>
       {showFilter && <SearchFilter setShowFilter={setShowFilter} />}
     </div>
+  ) : (
+    <div className="header flex-between"></div>
   );
 }
 
