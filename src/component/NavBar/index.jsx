@@ -44,20 +44,36 @@ function Menubar() {
           </div>
         </Link>
 
-        <div className="menu-item">
-          <img src={notificationIcon} className="menu-icon" alt="icon" />
-          <div className="menu-item-name">Notification</div>
-        </div>
+        <Link to="/notification">
+          <div
+            className={
+              location.pathname === "/notification"
+                ? "item-selected menu-item"
+                : "menu-item"
+            }
+          >
+            <img src={notificationIcon} className="menu-icon" alt="icon" />
+            <div className="menu-item-name">Notification</div>
+          </div>
+        </Link>
 
         <div className="menu-item">
           <img src={helpIcon} className="menu-icon" alt="icon" />
           <div className="menu-item-name">Help & Support</div>
         </div>
 
-        <div className="menu-item">
-          <img src={settingIcon} className="menu-icon" alt="icon" />
-          <div className="menu-item-name">Settings</div>
-        </div>
+        <Link to="/setting">
+          <div
+            className={
+              location.pathname === "/setting"
+                ? "item-selected menu-item"
+                : "menu-item"
+            }
+          >
+            <img src={settingIcon} className="menu-icon" alt="icon" />
+            <div className="menu-item-name">Settings</div>
+          </div>
+        </Link>
       </div>
     </div>
   ) : (

@@ -10,6 +10,8 @@ import Restaurants from "./component/Restaurants";
 import RestaurantDetails from "./component/RestaurantDetails";
 import ErrorBoundary from "./ErrorBoundary";
 import Login from "./component/Login";
+import Notification from "./component/Notification";
+import Setting from "./component/Setting";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Login />} />
               <Route path="/cart" element={<Cart />} />
+              <Route path="/setting" element={<Setting />} />
+              <Route path="/notification" element={<Notification />} />
               <Route path="/order" element={<Order />} />
               <Route path="/restaurant/:id" element={<RestaurantDetails />} />
               <Route path="/home" element={<Restaurants />} />
