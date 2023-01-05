@@ -6,6 +6,7 @@ import orderIcon from "../../assets/image/order.png";
 import notificationIcon from "../../assets/image/notification.png";
 import helpIcon from "../../assets/image/help.png";
 import settingIcon from "../../assets/image/setting.png";
+import cartIcon from "../../assets/image/cart.png";
 import logo from "../../assets/image/logo.png";
 
 function Menubar() {
@@ -28,6 +29,19 @@ function Menubar() {
           >
             <img src={homeIcon} className="menu-icon" alt="icon" />
             <div className="menu-item-name">Home</div>
+          </div>
+        </Link>
+
+        <Link to="/cart">
+          <div
+            className={
+              location.pathname === "/cart"
+                ? "item-selected menu-item"
+                : "menu-item"
+            }
+          >
+            <img src={cartIcon} className="menu-icon" alt="icon" />
+            <div className="menu-item-name">Cart</div>
           </div>
         </Link>
 

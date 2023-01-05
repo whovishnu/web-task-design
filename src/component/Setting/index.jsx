@@ -3,7 +3,9 @@ import { useState } from "react";
 function Setting() {
   const [username, setUserName] = useState("");
 
-  const handleClick = () => {};
+  const handleClick = () => {
+    alert("Saved!");
+  };
 
   return (
     <div className="container">
